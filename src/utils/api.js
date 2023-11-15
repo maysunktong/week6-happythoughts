@@ -1,6 +1,5 @@
 const API_BASE_URL = 'https://happy-thoughts-ux7hkzgmwa-uc.a.run.app';
 
-
 const api = {
   fetchThoughts: async () => {
     try {

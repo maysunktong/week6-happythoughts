@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import './App.css'
+import {PostBoard} from './components/PostBoard'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      Hi
+       <PostBoard />
     </>
   )
 }
