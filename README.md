@@ -1,8 +1,21 @@
-# React + Vite
+CSS framework - Tailwind CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Problem
+The Happy Thoughts board is built in order to practice state management in React. The board is a list of positive Christmas messages that users can share with each other. The messages are stored in an API and fetched from there.
 
-Currently, two official plugins are available:
+## State initialization
+const [thoughts, setThoughts] = useState([]);: Initializes state for storing the array of thoughts retrieved from the API.
+const [newThoughts, setNewThoughts] = useState("");: Initializes state for the text input where users can share their positive Christmas messages.
+const [isTextTooLong, setIsTextTooLong] = useState(false);: Initializes state to track whether the input text exceeds the limit of 140 characters.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Fetching part
+useEffect(() => { handleFetchThoughts(); }, []);: Uses the useEffect hook to fetch thoughts from the API when the component mounts.
+
+### Handling input changes
+const handleNewThoughtChange = (event) => { ... }: Updates the newThoughts state based on user input and checks if the input text exceeds 140 characters, updating the isTextTooLong state accordingly.
+
+## UI
+Responsive layout with Tailwind CSS classes (lg:, md:, sm:, etc.) for different screen sizes.
+
+## Deployed version
+https://github.com/maysunktong/week6-happythoughts

@@ -22,15 +22,12 @@ export const PostBoard = () => {
     }
   };
 
-  const handlePostThought = async () => {
+  const handlePostThoughts = async () => {
     if (!isTextTooLong) {
       try {
         await api.postThought(newThoughts);
-        // If the thought is posted successfully, fetch the latest thoughts
         handleFetchThoughts();
-        // Clear the input field
         setNewThoughts("");
-        // Reset the isTextTooLong state
         setIsTextTooLong(false);
       } catch (error) {
         console.error("Error posting thought:", error);
@@ -40,7 +37,7 @@ export const PostBoard = () => {
     }
   };
 
-  const handleLikeThought = async (thoughtId) => {
+  const handleLikeThoughts = async (thoughtId) => {
     try {
       await api.likeThought(thoughtId);
       // If the like is successful, fetch the latest thoughts
@@ -89,12 +86,12 @@ export const PostBoard = () => {
             </div>
           </div>
           <button
-            onClick={handlePostThought}
+            onClick={handlePostThoughts}
             disabled={isTextTooLong}
             style={isTextTooLong ? { backgroundColor: "grey", cursor: "not-allowed" } : {}}
-            className="w-fit p-4 border-white border-2 bg-pink-400 m-auto rounded-full text-white"
+            className="w-24 p-2 border-white border-2 bg-pink-400 m-auto rounded-full text-white"
           >
-            Post Thought
+            Post
           </button>
         </div>
         <img src={gift2Image} alt="" width={32} height={32} className="lg:w-48 md:w-32 sm:w-24" />
@@ -107,12 +104,12 @@ export const PostBoard = () => {
               key={thought._id}
               className="h-full border-white border-4 shadow-inner shadow-black bg-yellow-200 rounded-xl p-6 break-words"
             >
-              <span className="block text-lg md:text-base sm:text-sm  text-gray-800">
+              <span className="block min-h-[6rem] text-lg md:text-base sm:text-sm  text-gray-800">
                 {thought.message}
               </span>
               <div className="flex justify-end items-center">
                 <span className="px-2 text-red-600">{thought.hearts}</span>
-                <button onClick={() => handleLikeThought(thought._id)}>
+                <button onClick={() => handleLikeThoughts(thought._id)}>
                   <img src={giftImage} alt="" width={32} height={32} />
                 </button>
               </div>
