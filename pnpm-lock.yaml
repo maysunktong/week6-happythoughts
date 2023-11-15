@@ -5,12 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@rive-app/react-canvas':
+    specifier: ^4.5.3
+    version: 4.5.3(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  rive-react:
+    specifier: ^4.5.3
+    version: 4.5.3(react@18.2.0)
 
 devDependencies:
   '@types/react':
@@ -588,6 +594,27 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
     dev: true
+
+  /@rive-app/canvas-lite@2.7.3:
+    resolution: {integrity: sha512-anE33CSFbU8TqEgARxIeouugEeT+DPHab3BFyj27Qa1bdRI1eKONimZzI/5ih3ELwqPh1OlhVHVGr6KN3GIiIA==}
+    dev: false
+
+  /@rive-app/canvas@2.7.3:
+    resolution: {integrity: sha512-b/NeFwUTa243aC68xNZPFDVpg1CPmlBB89q0vi3Fiv6q14/WPua+fVsmG1omx0/8ToGNR2DmmXHdvfVP2YazoA==}
+    dev: false
+
+  /@rive-app/react-canvas@4.5.3(react@18.2.0):
+    resolution: {integrity: sha512-sfFS0dmRpfrhUmBFp0Xo2ZfkEP7Yh+1MQVyl4qhVF9KSgErcwJwkaGDpyKTwyUVSbd8A0y2PLmkmQGHrbQj5wA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@rive-app/canvas': 2.7.3
+      react: 18.2.0
+    dev: false
+
+  /@rive-app/webgl@2.7.3:
+    resolution: {integrity: sha512-64+Q+tSCc1Qs77m+3214kJJCRG5BtBIfv4kghoZTEyNx4z3HAnyM3hQBMO1gwW46jOuVb52SqFqZazKVtVELBQ==}
+    dev: false
 
   /@types/babel__core@7.20.4:
     resolution: {integrity: sha512-mLnSC22IC4vcWiuObSRjrLd9XcBTGf59vUSoq2jkQDJ/QQ8PMI9rSuzE+aEV8karUMbskw07bKYoUJCKTUaygg==}
@@ -2207,6 +2234,17 @@ packages:
     dependencies:
       glob: 7.2.3
     dev: true
+
+  /rive-react@4.5.3(react@18.2.0):
+    resolution: {integrity: sha512-IEXTBFA3C5ATof67RT7wRoT4/ZdUVUzkBL6z3XCupZjxJjWCh/DLsmlXyO1KPSLqWLhtgUfbnwpPKvkN+BxfnQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@rive-app/canvas': 2.7.3
+      '@rive-app/canvas-lite': 2.7.3
+      '@rive-app/webgl': 2.7.3
+      react: 18.2.0
+    dev: false
 
   /rollup@3.29.4:
     resolution: {integrity: sha512-oWzmBZwvYrU0iJHtDmhsm662rC15FRXmcjCk1xD771dFDx5jJ02ufAQQTn0etB2emNk4J9EZg/yWKpsn9BWGRw==}
