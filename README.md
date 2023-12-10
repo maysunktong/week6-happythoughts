@@ -1,7 +1,7 @@
 CSS framework - Tailwind CSS
 
 ## Problem
-The Happy Thoughts board is built in order to practice state management in React. The board is a list of positive Christmas messages that users can share with each other. The messages are stored in an API and fetched from there.
+The Happy Thoughts board is built in order to practice state management in React. The board is a list of positive messages that users can share with each other. The messages are stored in an API and fetched from there.
 
 ## State initialization
 const [thoughts, setThoughts] = useState([]);: Initializes state for storing the array of thoughts retrieved from the API.
@@ -18,4 +18,3 @@ const handleNewThoughtChange = (event) => { ... }: Updates the newThoughts state
 Responsive layout with Tailwind CSS classes (lg:, md:, sm:, etc.) for different screen sizes.
 
 ## Deployed version
-https://github.com/maysunktong/week6-happythoughts
