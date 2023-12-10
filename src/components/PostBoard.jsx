@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import christmasTreeImage from "../assets/christmas-tree.png";
-import gift2Image from "../assets/gift-2.png";
-import giftImage from "../assets/gift.png";
 import api from "../utils/api";
 
 export const PostBoard = () => {
@@ -55,26 +52,21 @@ export const PostBoard = () => {
 
   return (
     <div className="flex justify-center items-center flex-col">
-      <h1 className="lg:text-8xl md:text-6xl sm:text-4xl font-festive text-white">
-        Happy Christmas Thoughts
+      <h1 className="text-3xl lg:text-5xl p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">
+      Project Happy Thoughts
       </h1>
       <div className="flex justify-center items-center py-8">
-        <img
-          src={christmasTreeImage}
-          alt=""
-          width={32}
-          height={32}
-          className="lg:w-48 md:w-32 sm:w-24"
-        />
+        
         <div className="grid">
-          <div className="relative">
+          <div className="relative border border-black py-6 px-8 bg-gray-200">
+            <p className='text-2xl lg:text-3xl font-bold py-4'>What is making you happy right now?</p>
             <textarea
               rows="4"
               cols="50"
-              placeholder="Share your positive Christmas message here..."
+              placeholder="Share your positive message here..."
               value={newThoughts}
               onChange={handleNewThoughtChange}
-              className="max-h-[10rem] w-full bg-green-200 border-white border-4 shadow-inner shadow-black p-4 text-white"
+              className="max-h-[10rem] w-full border border-black shadow-inner  p-4 "
               style={{ color: isTextTooLong ? "red" : "black" }}
             ></textarea>
             <div className="absolute bottom-6 right-4">
@@ -84,35 +76,42 @@ export const PostBoard = () => {
                   : `-${newThoughts.length - 140} words exceeding`}
               </span>
             </div>
-          </div>
-          <button
+            <button
             onClick={handlePostThoughts}
             disabled={isTextTooLong}
             style={isTextTooLong ? { backgroundColor: "grey", cursor: "not-allowed" } : {}}
-            className="w-24 p-2 border-white border-2 bg-pink-400 m-auto rounded-full text-white"
+            className="border rounded-3xl w-fit p-2 bg-red-300 mt-8"
           >
-            Post
+            ❤️Send Happy Thoughts❤️
           </button>
+          </div>
+          
         </div>
-        <img src={gift2Image} alt="" width={32} height={32} className="lg:w-48 md:w-32 sm:w-24" />
-        <br />
+       
       </div>
-      <div className="flex justify-center items-center w-[80%]">
-        <ul className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-12 md:gap-4">
+      <div className="flex justify-center items-center w-full">
+        <ul className="w-[50%] flex flex-col gap-4">
           {thoughts.map((thought) => (
             <li
               key={thought._id}
-              className="h-full border-white border-4 shadow-inner shadow-black bg-yellow-200 rounded-xl p-6 break-words"
+              className="w-full h-full border border-black break-words p-6"
             >
-              <span className="block min-h-[6rem] text-lg md:text-base sm:text-sm  text-gray-800">
+              <span className="min-h-[3rem] text-md lg:text-lg  text-gray-800 font-medium">
                 {thought.message}
               </span>
-              <div className="flex justify-end items-center">
-                <span className="px-2 text-red-600">{thought.hearts}</span>
-                <button onClick={() => handleLikeThoughts(thought._id)}>
-                  <img src={giftImage} alt="" width={32} height={32} />
-                </button>
+              <div className="flex justify-between items-center">
+               
+                <div>
+                  <button onClick={() => handleLikeThoughts(thought._id)} className='rounded-full border py-2 px-4 bg-slate-400'>
+                    ❤️
+                  </button>
+                  <span className="px-2">x {thought.hearts}</span>
+                </div>
+                <div className="text-sm text-gray-500">
+                {Math.floor((new Date() - new Date(thought.createdAt)) / (1000 * 60 * 60 * 24))} days ago
               </div>
+              </div>
+      
             </li>
           ))}
         </ul>
