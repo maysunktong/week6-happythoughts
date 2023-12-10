@@ -18,3 +18,4 @@ const handleNewThoughtChange = (event) => { ... }: Updates the newThoughts state
 Responsive layout with Tailwind CSS classes (lg:, md:, sm:, etc.) for different screen sizes.
 
 ## Deployed version
+https://week6-happythoughts-may.netlify.app
