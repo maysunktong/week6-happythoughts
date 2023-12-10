@@ -58,7 +58,7 @@ export const PostBoard = () => {
       <div className="flex justify-center items-center py-8">
         
         <div className="grid">
-          <div className="relative border border-black py-6 px-8 bg-gray-200">
+          <div className="relative border border-black py-6 px-8 bg-gray-200 box-shadow">
             <p className='text-2xl lg:text-3xl font-bold py-4'>What is making you happy right now?</p>
             <textarea
               rows="4"
@@ -90,11 +90,11 @@ export const PostBoard = () => {
        
       </div>
       <div className="flex justify-center items-center w-full">
-        <ul className="w-[50%] flex flex-col gap-4">
+        <ul className="w-[50%] flex flex-col gap-6">
           {thoughts.map((thought) => (
             <li
               key={thought._id}
-              className="w-full h-full border border-black break-words p-6"
+              className="w-full h-full border border-black break-words p-6 box-shadow"
             >
               <span className="min-h-[3rem] text-md lg:text-lg  text-gray-800 font-medium">
                 {thought.message}
